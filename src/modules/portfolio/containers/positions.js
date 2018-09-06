@@ -11,6 +11,7 @@ import claimTradingProceeds from "modules/my-positions/actions/claim-trading-pro
 import { constants } from "services/augurjs";
 import { orderBy } from "lodash";
 import { selectMarket } from "modules/market/selectors/market";
+import { loadDisputing } from "modules/reporting/actions/load-disputing";
 
 const mapStateToProps = state => {
   const positions = getLoginAccountPositions();
@@ -65,7 +66,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   loadAccountTrades: () => dispatch(loadAccountTrades()),
   triggerTransactionsExport: () => dispatch(triggerTransactionsExport()),
-  claimTradingProceeds: marketIds => dispatch(claimTradingProceeds(marketIds))
+  claimTradingProceeds: marketIds => dispatch(claimTradingProceeds(marketIds)),
+  loadDisputing: () => dispatch(loadDisputing()),
 });
 
 const getPositionsMarkets = memoize(

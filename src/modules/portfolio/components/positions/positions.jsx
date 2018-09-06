@@ -24,8 +24,9 @@ export default class Positions extends Component {
   };
 
   componentWillMount() {
-    const { loadAccountTrades } = this.props;
+    const { loadAccountTrades, loadDisputing } = this.props;
     loadAccountTrades();
+    loadDisputing();
   }
 
   render() {
