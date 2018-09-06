@@ -21,7 +21,7 @@ export default class Positions extends Component {
     registerBlockNumber: PropTypes.number,
     claimTradingProceeds: PropTypes.func.isRequired,
     isMobile: PropTypes.bool,
-    loadDisputing: PropTypes.func.isRequired,
+    loadDisputing: PropTypes.func.isRequired
   };
 
   componentWillMount() {
