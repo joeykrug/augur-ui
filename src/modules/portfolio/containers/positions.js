@@ -67,7 +67,7 @@ const mapDispatchToProps = dispatch => ({
   loadAccountTrades: () => dispatch(loadAccountTrades()),
   triggerTransactionsExport: () => dispatch(triggerTransactionsExport()),
   claimTradingProceeds: marketIds => dispatch(claimTradingProceeds(marketIds)),
-  loadDisputing: () => dispatch(loadDisputing()),
+  loadDisputing: () => dispatch(loadDisputing())
 });
 
 const getPositionsMarkets = memoize(

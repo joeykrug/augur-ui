@@ -20,7 +20,8 @@ export default class Positions extends Component {
     marketsCount: PropTypes.number.isRequired,
     registerBlockNumber: PropTypes.number,
     claimTradingProceeds: PropTypes.func.isRequired,
-    isMobile: PropTypes.bool
+    isMobile: PropTypes.bool,
+    loadDisputing: PropTypes.func.isRequired,
   };
 
   componentWillMount() {
