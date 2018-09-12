@@ -14,6 +14,7 @@ import {
 } from "modules/filter-sort/constants/market-states";
 import { updateMarketsData } from "modules/markets/actions/update-markets-data";
 import { updateHasLoadedMarkets } from "modules/markets/actions/update-market-loading";
+import { showLoading, hideLoading } from "react-redux-loading-bar";
 
 const { REPORTING_STATE } = constants;
 
@@ -25,6 +26,7 @@ export const loadMarkets = (type, callback = logError) => (
 ) => {
   const { universe } = getState();
   const params = { universe: universe.id };
+  dispatch(showLoading());
 
   augur.markets.getMarkets(params, (err, marketsArray) => {
     if (err) return callback(err);
@@ -37,6 +39,7 @@ export const loadMarkets = (type, callback = logError) => (
       {}
     );
 
+    dispatch(hideLoading());
     dispatch(updateHasLoadedMarkets(true));
     dispatch(updateMarketsData(marketsData));
     callback(null, marketsArray);
@@ -49,6 +52,7 @@ export const loadUserMarkets = (callback = logError) => (
   getState
 ) => {
   const { universe, loginAccount } = getState();
+  dispatch(showLoading());
 
   augur.markets.getMarketsCreatedByUser(
     { universe: universe.id, creator: loginAccount.address },
@@ -62,6 +66,7 @@ export const loadUserMarkets = (callback = logError) => (
         }),
         {}
       );
+      dispatch(hideLoading());
       dispatch(updateMarketsData(marketsData));
       callback(null, marketsArray);
     }
@@ -112,7 +117,7 @@ export const loadMarketsByFilter = (filterOptions, cb = () => {}) => (
       break;
     }
   }
-
+  dispatch(showLoading());
   dispatch(updateHasLoadedMarkets(false));
 
   const params = {
@@ -178,6 +183,7 @@ export const loadMarketsByFilter = (filterOptions, cb = () => {}) => (
     });
 
     setTimeout(() => {
+      dispatch(hideLoading());
       dispatch(updateHasLoadedMarkets(true));
     }, 2000);
     return cb(null, finalizedMarketList);

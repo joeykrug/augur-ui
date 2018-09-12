@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-import LoadingBar from 'react-redux-loading-bar'
+import LoadingBar from "react-redux-loading-bar";
 
 import shouldComponentUpdatePure from "utils/should-component-update-pure";
 import debounce from "utils/debounce";
@@ -509,7 +509,9 @@ export default class AppView extends Component {
             [Styles[`App--blur`]]: Object.keys(modal).length !== 0
           })}
         >
-          <section className={Styles.App__loadingIndicator} />
+          <header className={Styles.App__loadingIndicator}>
+            <LoadingBar className={Styles.App__loadingIndicatorBar} />
+          </header>
           <section
             className={Styles.SideBar}
             onClick={e => this.mainSectionClickHandler(e, false)}
@@ -535,7 +537,6 @@ export default class AppView extends Component {
             />
           </section>
           <section className={Styles.Main}>
-            <LoadingBar />
             <section
               className={Styles.TopBar}
               onClick={this.mainSectionClickHandler}
