@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
+import LoadingBar from 'react-redux-loading-bar'
 
 import shouldComponentUpdatePure from "utils/should-component-update-pure";
 import debounce from "utils/debounce";
@@ -534,6 +535,7 @@ export default class AppView extends Component {
             />
           </section>
           <section className={Styles.Main}>
+            <LoadingBar />
             <section
               className={Styles.TopBar}
               onClick={this.mainSectionClickHandler}

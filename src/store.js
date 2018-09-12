@@ -7,6 +7,7 @@ import thunk from "redux-thunk";
 
 import { createReducer } from "src/reducers";
 import { windowRef } from "src/utils/window-ref";
+import { loadingBarMiddleware } from 'react-redux-loading-bar'
 
 // console log middleware
 const consoleLog = store => next => action => {
@@ -43,13 +44,13 @@ const localStorageMiddleware = store => next => action => {
 let middleware;
 
 if (process.env.NODE_ENV === "production") {
-  middleware = applyMiddleware(thunk, localStorageMiddleware);
+  middleware = applyMiddleware(thunk, localStorageMiddleware, loadingBarMiddleware());
 } else {
   const whenever = require("redux-whenever");
   middleware = compose(
     whenever,
     composeWithDevTools({})(
-      applyMiddleware(consoleLog, thunk, localStorageMiddleware)
+      applyMiddleware(consoleLog, thunk, localStorageMiddleware, loadingBarMiddleware())
     )
   );
 }

@@ -50,6 +50,7 @@ import transactionsData from "modules/transactions/reducers/transactions-data";
 import transactionsLoading from "modules/transactions/reducers/transactions-loading";
 import transactionsOldestLoadedBlock from "modules/transactions/reducers/transactions-oldest-loaded-block";
 import universe from "modules/universe/reducers/universe";
+import { loadingBarReducer } from 'react-redux-loading-bar'
 
 export function createReducer() {
   return {
@@ -104,6 +105,7 @@ export function createReducer() {
     transactionsData,
     transactionsLoading,
     transactionsOldestLoadedBlock,
-    universe
+    universe,
+    loadingBar: loadingBarReducer,
   };
 }

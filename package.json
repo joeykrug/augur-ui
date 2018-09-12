@@ -78,6 +78,7 @@
     "react-faux-dom": "4.1.0",
     "react-helmet": "5.2.0",
     "react-redux": "5.0.6",
+    "react-redux-loading-bar": "^4.0.7",
     "react-router-dom": "4.2.2",
     "react-spinners": "^0.3.3",
     "react-textfit": "1.1.0",
@@ -90,7 +91,8 @@
     "scroll-snap": "1.0.5",
     "shelljs": "0.7.8",
     "shifty": "2.1.0",
-    "speedomatic": "2.1.4"
+    "speedomatic": "2.1.4",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@types/expect-puppeteer": "^2.2.2",
