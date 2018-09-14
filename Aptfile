@@ -1,1 +1,4 @@
+gcc-4.8
+g++-4.8
+build-essential
 libusb-1.0-0-dev
