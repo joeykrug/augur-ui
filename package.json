@@ -4,9 +4,6 @@
   "description": "Augur UI",
   "author": "The Augur Developers <team@augur.net>",
   "license": "AAL",
-  "engines": {
-    "node": "8 || 9"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/AugurProject/augur-ui"
