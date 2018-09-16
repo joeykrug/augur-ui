@@ -36,8 +36,8 @@ if (process.env.NODE_ENV === "development") {
 
 app.use(function(err, req, res, _next) {
     console.log('Error handler', err);
-    if(err instanceof IpDeniedError){
-      res.status(401);
+    if(err){
+      res.status(451);
     }else{
       res.status(err.status || 500);
     }
